@@ -2,7 +2,6 @@
   <div id="map">
     <b-container>
 
-
         <b-row class="mt-3">
             <b-col sm="12" md="7" lg="8" class="mb-3">
                 <b-input-group prepend=" Выбрать одного игрока: ">
