@@ -7,12 +7,12 @@
     <b-button id="show-btn-aut" @click="showModalAutorization">Войти</b-button>
     
     <!-- Регистрация -->
-    <b-modal ref="reg-modal" hide-footer title="Регистрация">
+    <b-modal class="ttl-text" ref="reg-modal" hide-footer title="Регистрация">
       <b-container class="d-block text-center">
-        <b-row class="my-4">
+        <b-row >
           <b-col class="field" lg="12">
            <b-form-input 
-           class="type-text" 
+           class="type" 
            type="text" 
            placeholder="Имя"
            ></b-form-input>
@@ -20,35 +20,35 @@
 
           <b-col class="field" lg="12">
            <b-form-input 
-           class="type-text" 
+           class="type" 
            type="text" 
            placeholder="Фамилия"></b-form-input>
           </b-col>
 
           <b-col class="field" lg="12">
            <b-form-input 
-           class="type-email" 
+           class="type" 
            type="email" 
            placeholder="Email"></b-form-input>
           </b-col>
 
           <b-col class="field" lg="12">
            <b-form-input 
-           class="type-tel" 
+           class="type" 
            type="tel" 
            placeholder="Телефон"></b-form-input>
           </b-col>
 
           <b-col class="field" lg="12">
            <b-form-input 
-           class="type-password" 
+           class="type" 
            type="password" 
            placeholder="Пароль"></b-form-input>
           </b-col>
 
           <b-col class="field" lg="12">
            <b-form-input 
-           class="type-password" 
+           class="type" 
            type="password" 
            placeholder="Проверка пароля"></b-form-input>
           </b-col>
@@ -64,18 +64,18 @@
     </b-modal>
 
     <!-- Авторизация -->
-    <b-modal ref="aut-modal" hide-footer title="Вход">
+    <b-modal class="ttl-text" ref="aut-modal" hide-footer title="Вход">
       <b-container class="d-block text-center">
         <b-row class="my-4">
           <b-col class="field" lg="12">
           <b-form-input 
-          class="type-email" 
+          class="type" 
           type="email" 
           placeholder="Email"></b-form-input>
           </b-col>
           <b-col class="field" lg="12">
           <b-form-input 
-          class="type-password" 
+          class="type" 
           type="password" 
           placeholder="Пароль"></b-form-input>
           </b-col>
@@ -89,7 +89,6 @@
       </b-container>
       
     </b-modal>
-
     
   </div>
 </template>
@@ -122,6 +121,10 @@ export default {
 </script>
 
 <style scoped>
+
+  .field {
+    font-family: Roboto;
+  }
   .name-field {
     display: flex;
     align-items: flex-start;
@@ -129,6 +132,8 @@ export default {
 
   .success {
     width: 100%;
+    height: 57px;
+    font-size: 22px;
   }
 
   #show-btn-reg {
@@ -139,28 +144,14 @@ export default {
     margin: 0 5px 0 5px;
   }
 
+
   .field {
     margin: 0 0 14px 0;
   }
 
-  .type-text {
-    height: 46px;
-    color: #000;
-  }
-
-  .type-email {
-    height: 46px;
-    color: #000;
-  } 
-
-  .type-tel {
-    height: 46px;
-    color: #000;
-  } 
-
-  .type-password {
-    height: 46px;
-    color: #000;
+  .type {
+    height: 46px; 
+    font-size: 16px;
   }
 
 
