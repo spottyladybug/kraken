@@ -1,17 +1,30 @@
 <template>
   <div id="map">
+    <b-container>
 
-    <button @click="showTracksTogler">Показать треки</button>
-    <br>
-    <label for="filter">Выбрать одного игрока:  </label>
-    <input id="filter" v-model="singelBoatId" @input="filterBoats" type="number" min="1" :max="boats.length">
-    <button @click="singelBoatId=''">Все игроки</button>
+
+        <b-row>
+            <b-col sm="12" md="7" lg="8" class="mb-3">
+                <b-input-group prepend=" Выбрать одного игрока: ">
+                    <b-form-input id="filter" v-model="singelBoatId" @input="filterBoats" type="number" min="1" :max="boats.length"></b-form-input>
+                </b-input-group>
+            </b-col>
+            <b-col sm="12" md="5" lg="4" class="mb-3">
+                <b-input-group-append class="d-flex justify-content-end">
+                    <b-button @click="singelBoatId=''" variant="secondary" class="mr-3">Все игроки</b-button>
+                    <b-button  @click="showTracksTogler" variant="dark">Показать треки</b-button>
+                </b-input-group-append>
+            </b-col>
+        </b-row>
+        
+
+    
 
 
     <yandex-map 
       :coords="[59.94655135493689,29.97523181992358]"
       :zoom="10"
-      style="width: 600px; height: 600px;"
+      style="width: 100%; height: 600px;"
     >
     
       <ymap-marker 
@@ -47,6 +60,7 @@
     
     
   </yandex-map>
+    </b-container>
   </div>
 </template>
 
@@ -129,3 +143,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+    .control-panel {
+        margin-bottom: 1em;
+    }
+</style>
