@@ -24,7 +24,10 @@ export default {
     text-align: center;
     align-content: center;
 }
-a {
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border: none;
+}
+a, a:hover {
     color: #000000;
 }
 </style>
