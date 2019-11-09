@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-      <div class="container">
+      <div class="content">
           <router-view></router-view>
       </div>
     <Footer/>
@@ -24,7 +24,7 @@ export default {
 .app {
   min-height: 100rem;
 }
-.container {
+.content {
     min-height: 60rem;
 }
 </style>
