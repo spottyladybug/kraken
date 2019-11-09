@@ -22,6 +22,7 @@
 
 
     <yandex-map 
+      :controls="['fullscreenControl', 'typeSelector', 'zoomControl']"
       :coords="[59.94655135493689,29.97523181992358]"
       :zoom="10"
       style="width: 100%; height: 70vh;"
@@ -33,19 +34,19 @@
         marker-type="placemark"
         :markerId="boat.id"
         :coords="boat.cords[boat.cords.length - 1]"
-        :balloon="{header: `Гонщик №${boat.id}`, body: 'body', footer: 'footer'}"
+        :balloon="{header: `Гонщик №${boat.id}`, body: `Место: ${boat.id}`, footer: `Круг: ${boat.id}`}"
         :icon="{color: 'black', content: 'doticon', glyph: 'waterway'}"
     ></ymap-marker>
 
     <ymap-marker 
       v-for="boat in neededBoatsForTraks"
-      :key="boat.id + 5"
-      :markerId="boat.id + 5"
+      :key="boat.id + 'TRACK'"
+      :markerId="boat.id + 'TRACK'"
       marker-type="Polyline"
       :marker-stroke="{color: getRandomColor(), width: 3}"
       :marker-fill="{color: getRandomColor(), opacity: 0.4}"
       :coords="boat.cords"
-      :balloon="{header: `Гонщик №${boat.id}`, body: 'body', footer: 'footer'}"
+      :balloon="{header: `Гонщик №${boat.id}`, body: `Место: ${boat.id}`, footer: `Круг: ${boat.id}`}"
     ></ymap-marker>
 
     <ymap-marker 
@@ -54,10 +55,27 @@
       :marker-stroke="{color: '#ff0000', width: 1}"
       :marker-fill="{color: '#ff0000', opacity: 0.4}"
       :coords="reguts[0].cords"
-      :balloon="{header: `Гоночный трек`, body: 'body', footer: 'footer'}"
+      :balloon="{header: `Гоночный трек`, body: 'Длина: 23 км', footer: 'Среднее время круга: 41 м'}"
     ></ymap-marker>
 
-    
+    <ymap-marker 
+     :markerId="-2"
+      marker-type="circle"
+      :coords="reguts[0].cords[0]"
+      circle-radius="300"
+      hint-content="Финиш"
+      :marker-fill="{color: '#ffffff', opacity: 0.4}"
+      :marker-stroke="{color: '#ff0000', width: 1}"
+      :balloon="{header: 'header', body: 'body', footer: 'footer'}"
+    ></ymap-marker>
+
+    <ymap-marker 
+      :markerId="-3"
+      marker-type="placemark"
+      :coords="reguts[0].cords[0]"
+      :balloon="{header: 'header', body: 'body', footer: 'footer'}"
+      :icon="{color: 'red', content: 'doticon', glyph: 'government'}"
+    ></ymap-marker>
     
   </yandex-map>
     </b-container>
@@ -81,6 +99,8 @@ export default {
     }
   },
   created() {
+
+    //СЮДА ЕЩЕ ДОБАВИТЬ ВЫВОД НУЖНОГО РЕГАДА (ДЛЯ ОТРИСОВКИ ГОНОЧНОГО ТРЕКА ТРЕКА)
  
     // setInterval(() => {
     //     this.getRegat().catch(() => {})
