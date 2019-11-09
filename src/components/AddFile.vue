@@ -4,7 +4,7 @@
     <file-pond
         name="test"
         ref="pond"
-        label-idle="Добавьте сюда файл..."
+        label-idle="Добавьте файл..."
         v-bind:allow-multiple="true"
         accepted-file-types="image/jpeg, image/png"
         server="/api"
