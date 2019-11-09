@@ -3,7 +3,7 @@
     <b-container>
 
 
-        <b-row>
+        <b-row class="mt-3">
             <b-col sm="12" md="7" lg="8" class="mb-3">
                 <b-input-group prepend=" Выбрать одного игрока: ">
                     <b-form-input id="filter" v-model="singelBoatId" @input="filterBoats" type="number" min="1" :max="boats.length"></b-form-input>
@@ -24,7 +24,7 @@
     <yandex-map 
       :coords="[59.94655135493689,29.97523181992358]"
       :zoom="10"
-      style="width: 100%; height: 600px;"
+      style="width: 100%; height: 70vh;"
     >
     
       <ymap-marker 
