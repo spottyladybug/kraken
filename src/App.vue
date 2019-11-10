@@ -30,6 +30,6 @@ export default {
 }*/
 
 .content{
-  background: #E5E5E5;
+  background: #F6F6F6;
 }
 </style>
