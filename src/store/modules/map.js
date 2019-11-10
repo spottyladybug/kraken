@@ -53,6 +53,20 @@ const state = {
             [59.94217793527044,30.309930175234797], [59.94437407648254,30.309286445071223],
           ],
 
+
+
+          fakeBoatCoards2: [
+            
+            [60.00150648598009,29.893912922593593], [60.01617121382881,29.82887341938163], [60.016290246279084,29.853400837632645], 
+            [60.03949150546295,29.730872528157615], [60.03985282761863,29.67062781220331],
+            [60.04222271458654,29.64392059545102], [60.03281390809816,29.608274161384152], [60.01039838434032,29.624753653571652],
+            [59.99750363470496,29.648442923591183], [59.98632410434113,29.67693871216542], [59.96688444878026,29.697208369002674],
+            [59.9391979808725,29.88739640986076], [59.92896052176911,29.9763673272773], [59.925169242722355,30.053614946906194],
+            [59.92550443159157,30.134431139609784], [59.924060782755,30.20949839016844], [59.918044421609736,30.25229998792912],
+            [59.91773006138628,30.266497558627627], [59.927381905750906,30.269930786166686], [59.93272367982881,30.27920050052215],
+            [59.93599724381043,30.29533666995573], [59.940648592871405,30.30666632083466], [59.94376383226636,30.30572504023785],
+          ],
+
     boats: [
         {
           id: 1,
@@ -61,8 +75,9 @@ const state = {
                 [60.04627904421609,29.735288643809408], [60.04162334293775,29.637076745481284], [60.019337199177,29.60717715617732],
                 [59.970151497419906,29.666523264032556], [59.95678892539621,29.754653091235213]
             ],
-          racetrackCount: 0,  
+          racetrackCount: 1,  
           updated: true,
+          name: 'Вечяслав Малков'
         },
         {
           id: 2,
@@ -71,21 +86,24 @@ const state = {
             ],
           racetrackCount: 1, 
           updated: true,
+          name: 'Анна Лялина'
         },
         {
           id: 3,
           cords: [[59.94376383226636,30.30572504023785], 
           ],
-          racetrackCount: 0, 
+          racetrackCount: 3, 
           updated: true,
+          name: 'Мария Савина'
         },
         {
           id: 4,
           cords: [[59.94376383226636,30.30572504023785], [59.95857348144599,30.251480045120672], [59.970278736782134,30.184188785355055],
-                [60.01598089395001,29.908981170749694]
+                [60.01598089395001,29.908981170749694],
             ],
-          racetrackCount: 0, 
+          racetrackCount: 4, 
           updated: true,
+          name: 'Толя Шульженко'
         },
         {
             id: 5,
@@ -93,40 +111,18 @@ const state = {
                   [],
                 ],
 
-            racetrackCount: 1, 
+            racetrackCount: 2, 
             updated: true,
+            name: 'Влад Бочманов'
         },
         {
             id: 6,
             cords: [
                 [],
               ],
-            racetrackCount: 0, 
-            updated: true,
-          },
-          {
-            id: 7,
-            cords: [
-                [],
-              ],
-            racetrackCount: 0, 
-            updated: true,
-          },
-          {
-            id: 8,
-            cords: [
-                [],
-              ],
             racetrackCount: 1, 
             updated: true,
-          },
-          {
-            id: 9,
-            cords: [
-                [],
-              ],
-            racetrackCount: 0, 
-            updated: true,
+            name: 'Олег Герман'
           },
       ],
 };
@@ -158,6 +154,13 @@ const mutations = {
         }
     },
 
+    pushFakeToBoat(state, cord) {
+        state.boats[2].cords.push(cord);
+    },
+    pushFakeToBoat2(state, cord) {
+        state.boats[3].cords.push(cord);
+    },
+
     countBoatRace (state, boatId) {
         state.boats.filter(boat => boat.id == boatId)[0].racetrackCount += 1;
     },
@@ -182,22 +185,32 @@ const actions = {
     //     context.commit('setRegats', req.data);
     // },
 
-    async pushToBoatAct(context) {
+    async pushFakeToBoatAct(context) {
 
-          for (let index = 0; index < state.fakeBoatCoards.length; index++) {
+        for (let index = 0; index < state.fakeBoatCoards.length; index++) {
+          let promise = new Promise((resolve) => {
+              setTimeout(() => resolve(state.fakeBoatCoards[index]), 1000)
+            });
+          
+          let result = await promise; 
+  
+          context.commit('pushFakeToBoat', result);
+      }
+      
+  },
+  async pushFakeToBoatAct2(context) {
 
-            let promise = new Promise((resolve) => {
-                setTimeout(() => resolve(state.fakeBoatCoards[index]), 1000)
-              });
-            
-            let result = await promise; 
-    
-            context.commit('pushToBoat', result);
-            
-            
-        }
-        
-    } 
+    for (let index = 0; index < state.fakeBoatCoards2.length; index++) {
+      let promise = new Promise((resolve) => {
+          setTimeout(() => resolve(state.fakeBoatCoards2[index]), 1000)
+        });
+      
+      let result = await promise; 
+
+      context.commit('pushFakeToBoat2', result);
+  }
+  
+} 
 };
 
 export default {
