@@ -126,7 +126,8 @@
 		height: 160px;
 		margin: 30px 30px 0 0;
 
-		background: #F4F4F4;
+		background: #Fff;
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07);
 		border-radius: 18px;
 		
 	}
