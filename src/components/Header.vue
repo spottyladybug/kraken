@@ -54,7 +54,7 @@ export default {
     width:100%;
     justify-content: flex-end;
     align-items: flex-end;
-    background: #C4C4C4;
+    background: #17A4D2;
 }
 .nav {
     height: 80px;
@@ -65,6 +65,6 @@ export default {
     border: none;
 }
 a, a:hover {
-    color: #000000;
+    color: #FBFBFB;
 }
 </style>
