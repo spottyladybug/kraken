@@ -127,7 +127,7 @@
 	}
 
 	.success-big {
-		width: 350px;
+		width: 100%;
 		height: 60px;
 
 		font-size: 20px;
@@ -135,7 +135,7 @@
 
 		
 		font-family: Roboto;
-		bbackground: #78D657;
+		background: #78D657;
 		border-radius: 5px;
 		border: none;
 
