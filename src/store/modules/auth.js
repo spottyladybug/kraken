@@ -3,7 +3,7 @@ import { USER_REQUEST } from 'src/store/actions/user'
 import auth from 'src/api/auth'
 
 const state = {
-    token: localStorage.getItem('user-token') || '',
+    token: '',
     status: '',
     hasLoadedOnce: false
 };
@@ -19,14 +19,13 @@ const actions = {
       commit(AUTH_REQUEST);
       auth.login(userData)
       .then(resp => {
-        localStorage.setItem('user-token', resp.token);
+        localStorage.setItem('user-token', resp.data.token);
         commit(AUTH_SUCCESS, resp);
         dispatch(USER_REQUEST);
         resolve(resp)
       })
       .catch(err => {
         commit(AUTH_ERROR, err);
-        localStorage.removeItem('user-token');
         reject(err)
       })
     })
@@ -36,14 +35,13 @@ const actions = {
       commit(REGISTER_REQUEST);
       auth.register(userData)
       .then(resp => {
-        localStorage.setItem('user-token', resp.token);
+        localStorage.setItem('user-token', resp.data.token);
         commit(AUTH_SUCCESS, resp);
         dispatch(USER_REQUEST);
         resolve(resp)
       })
       .catch(err => {
         commit(AUTH_ERROR, err);
-        localStorage.removeItem('user-token');
         reject(err)
       })
     })
@@ -51,7 +49,6 @@ const actions = {
   [AUTH_LOGOUT]: ({commit}) => {
     return new Promise((resolve) => {
       commit(AUTH_LOGOUT);
-      localStorage.removeItem('user-token');
       resolve()
     })
   }
@@ -66,7 +63,7 @@ const mutations = {
   },
   [AUTH_SUCCESS]: (state, resp) => {
     state.status = 'success';
-    state.token = resp.token;
+    state.token = resp.data.token;
     state.hasLoadedOnce = true
   },
   [AUTH_ERROR]: (state) => {
