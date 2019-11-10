@@ -6,7 +6,7 @@ export default {
     },
 
     login(data) {
-        return Repository.post('/login', data);
+        return Repository.post('/api/api-token-auth/', { data });
     },
 
     logout() {

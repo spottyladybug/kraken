@@ -5,11 +5,15 @@ import { AUTH_LOGOUT } from 'src/store/actions/auth'
 
 const state = {
     status: '',
-    name: undefined
+    email: undefined,
+    password: undefined,
+    first_name: undefined,
+    last_name: undefined,
+    phone: undefined,
 };
 
 const getters = {
-  getName: state => state.name,
+  name: state => state.name,
   isProfileLoaded: state => !!state.name,
 };
 
