@@ -1,6 +1,6 @@
 <template>
 	<div id="cap">
-		<b-container class="my-4">
+		<b-container class="py-4">
 			<b-row>
 				<b-col lg="8">
 					<b-row>
@@ -38,7 +38,11 @@
 							</b-row>
 							<b-row>
 								<b-col lg="6">
-									<div class="add-img-boat">+</div>
+									<div class="plus"> 
+									<div class="circle">
+										+
+									</div>
+									</div>
 								</b-col>
 								<b-col lg="6"><b-button class="success" variant="success">Загрузить</b-button></b-col>
 							</b-row>
@@ -138,6 +142,8 @@
 		width: 161px;
 		height: 45px;
 
+		background: #17A4D2;
+		border:none;
 		border-radius: 5px;
 
 		font-size: 18px;
@@ -158,6 +164,10 @@
 
 		font-family: Roboto;
 
+		background: #7AEC52;
+		border-radius: 5px;
+		border: none;
+
 		margin: 55px 0 0 0;
 		padding: 0;
 	}
@@ -167,6 +177,41 @@
 		justify-content: center;
 		align-items: center;
 	}
+
+		.plus {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 161px;
+		height: 97px;
+
+		margin: 8px 0 45px 0;
+
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07);
+		border-radius: 5px;
+		background: #FFFFFF;
+	}
+
+	.circle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 51px;
+		height: 51px;
+
+		background: #17A4D2;
+		border-radius: 100%;
+
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 31.5273px;
+		line-height: 37px;
+
+	}
+
 
 
 	

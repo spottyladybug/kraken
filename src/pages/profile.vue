@@ -1,6 +1,6 @@
 <template>
 	<div id="profile">
-		<b-container class="my-4">
+		<b-container class="py-4">
 			<b-row>
 				<b-col lg="8">
 					<b-row>

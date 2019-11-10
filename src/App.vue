@@ -28,4 +28,8 @@ export default {
 .content {
     min-height: 100%;
 }*/
+
+.content{
+  background: #E5E5E5;
+}
 </style>
