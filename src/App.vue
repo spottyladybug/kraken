@@ -22,10 +22,10 @@ export default {
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-.app {
+/*.app {
   min-height: 100rem;
 }
 .content {
-    min-height: 60rem;
-}
+    min-height: 100%;
+}*/
 </style>

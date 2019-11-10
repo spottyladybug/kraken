@@ -20,7 +20,7 @@ export default {
     background: #C4C4C4;
 }
 .nav {
-    height: 80px;
+    height: 95px;
     text-align: center;
     align-content: center;
 }

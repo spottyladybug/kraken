@@ -1,69 +1,34 @@
 <template>
-	<div id="boat">
+	<div id="sailor">
 		<b-container class="my-4">
 			<b-row>
 				<b-col lg="8">
 					<b-row>
-						<b-col lg="2">
+						<b-col lg="7">
 							<div class="ttl">
-								Регистрация cудна
+								Регистрация помощника
 							</div>
 						</b-col>
 					</b-row>
 
 					<b-row>
+						<b-col lg="6"><div class="ttl-doc">Документы</div></b-col>
+					</b-row>
+					<b-row>
+						<b-col lg="6"><b-button class="success" variant="success">Загрузить</b-button></b-col>
+					</b-row>
+					<b-row>
 						<b-col lg="6">
-							<b-form-input 
-							class="type" 
-							type="text" 
-							placeholder="Название судна"
-							></b-form-input>
-							
-							<b-form-input 
-							class="type" 
-							type="number" 
-							placeholder="Год выпуска"
-							></b-form-input>
-
-							<b-form-input 
-							class="type" 
-							type="number" 
-							placeholder="Количество мест"
-							></b-form-input>
-
 							<b-form-textarea 
-							id="textarea" 
-							placeholder="Описание"
-							rows="10"
+							id="textarea-helper" 
+							placeholder="Опыт"
+							rows="6"
 							></b-form-textarea>
-
 						</b-col>
-						<b-col lg="6">
-							<b-row>
-								<b-col lg="7">
-									<div class="ttl-boat">Изображение судна</div>
-								</b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<div class="add-img-boat">+</div>
-								</b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<div class="ttl-doc">Документы</div>
-								</b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<b-button class="success" variant="success">Загрузить</b-button>
-								</b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="12">
-									<b-button class="success-big" variant="success">Зарегистрировать</b-button>
-								</b-col>
-							</b-row>
+					</b-row>
+					<b-row>
+						<b-col lg="6" class="pl-0">
+							<b-col lg="6"><b-button class="success-big" variant="success">Зарегистрировать</b-button></b-col>
 						</b-col>
 					</b-row>
 				</b-col>
@@ -149,7 +114,7 @@
 		line-height: 21px;
 
 
-		margin-bottom: 140px;
+		margin-bottom: 45px;
 
 		font-family: Roboto;
 	}
@@ -162,6 +127,9 @@
 		line-height: 23px;
 
 		font-family: Roboto;
+
+		margin: 55px 0 0 0;
+		padding: 0;
 	}
 
 	.add-img-boat {
@@ -169,6 +137,7 @@
 		justify-content: center;
 		align-items: center;
 	}
+
 
 
 	

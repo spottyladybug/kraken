@@ -1,67 +1,62 @@
 <template>
-	<div id="boat">
+	<div id="cap">
 		<b-container class="my-4">
 			<b-row>
 				<b-col lg="8">
 					<b-row>
-						<b-col lg="2">
+						<b-col lg="7">
 							<div class="ttl">
-								Регистрация cудна
+								Регистрация капитана
 							</div>
 						</b-col>
 					</b-row>
 
 					<b-row>
 						<b-col lg="6">
-							<b-form-input 
-							class="type" 
-							type="text" 
-							placeholder="Название судна"
-							></b-form-input>
-							
-							<b-form-input 
-							class="type" 
-							type="number" 
-							placeholder="Год выпуска"
-							></b-form-input>
-
-							<b-form-input 
-							class="type" 
-							type="number" 
-							placeholder="Количество мест"
-							></b-form-input>
-
-							<b-form-textarea 
-							id="textarea" 
-							placeholder="Описание"
-							rows="10"
-							></b-form-textarea>
-
-						</b-col>
-						<b-col lg="6">
 							<b-row>
-								<b-col lg="7">
-									<div class="ttl-boat">Изображение судна</div>
+								<b-col lg="12">
+									<b-form-input 
+									class="type" 
+									type="number" 
+									placeholder="Номер прав"
+									></b-form-input>
 								</b-col>
+								<b-col lg="12">
+									<b-form-input 
+									class="type" 
+									type="number" 
+									placeholder="Количество матросов"
+									></b-form-input>
+								</b-col>
+							</b-row>
+							
+							<b-row>
+								<b-col lg="6">
+									<div class="ttl-boat">Права капитана</div>
+								</b-col>
+								<b-col lg="6"><div class="ttl-doc">Документы</div></b-col>
 							</b-row>
 							<b-row>
 								<b-col lg="6">
 									<div class="add-img-boat">+</div>
 								</b-col>
+								<b-col lg="6"><b-button class="success" variant="success">Загрузить</b-button></b-col>
 							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<div class="ttl-doc">Документы</div>
-								</b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<b-button class="success" variant="success">Загрузить</b-button>
-								</b-col>
-							</b-row>
+						</b-col>
+						<b-col lg="6">
 							<b-row>
 								<b-col lg="12">
-									<b-button class="success-big" variant="success">Зарегистрировать</b-button>
+									<b-form-textarea 
+									id="textarea-cap" 
+									placeholder="Опыт"
+									rows="9"
+									></b-form-textarea>
+								</b-col>
+							</b-row>
+							
+							<b-row>
+								<b-col lg="12" class="pl-0">
+									<b-col lg="6"><b-button class="success-big" variant="success">Зарегистрировать</b-button></b-col>
 								</b-col>
 							</b-row>
 						</b-col>
@@ -162,6 +157,9 @@
 		line-height: 23px;
 
 		font-family: Roboto;
+
+		margin: 55px 0 0 0;
+		padding: 0;
 	}
 
 	.add-img-boat {
