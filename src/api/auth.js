@@ -1,5 +1,4 @@
 import { Repository } from 'src/api/repository';
-import axios from 'axios';
 
 export default {
     user() {
@@ -15,6 +14,6 @@ export default {
     },
 
     register(data) {
-        return axios.post('/api/profiles/', { data } );
+        return Repository.post('/api/profiles/', { data } );
     },
 };
