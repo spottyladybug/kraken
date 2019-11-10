@@ -8,6 +8,7 @@ import cap from 'src/pages/cap'
 import sailor from 'src/pages/sailor'
 import helper from 'src/pages/helper'
 import capsforsea from 'src/pages/caps-for-sea'
+import capfind from 'src/pages/cap-find'
 ;
 
 Vue.use(Router);
@@ -59,6 +60,12 @@ export default new Router({
             path: '/caps-for-sea',
             name: 'caps-for-sea',
             component: capsforsea,
+        },
+
+        {
+            path: '/cap-find',
+            name: 'cap-find',
+            component: capfind,
         }
     ],
 })

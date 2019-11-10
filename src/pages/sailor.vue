@@ -1,6 +1,6 @@
 <template>
 	<div id="sailor">
-		<b-container class="my-4">
+		<b-container class="py-4">
 			<b-row>
 				<b-col lg="8">
 					<b-row>
@@ -108,6 +108,8 @@
 		width: 161px;
 		height: 45px;
 
+		background: #17A4D2;
+		border:none;
 		border-radius: 5px;
 
 		font-size: 18px;
@@ -127,6 +129,9 @@
 		line-height: 23px;
 
 		font-family: Roboto;
+		background: #7AEC52;
+		border-radius: 5px;
+		border: none;
 
 		margin: 55px 0 0 0;
 		padding: 0;

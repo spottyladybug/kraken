@@ -345,7 +345,7 @@
 		width: 349px;
 		height: 114px;
 		
-		background: #DFDFDF;
+		background: #FFFFFF;
 		border-radius: 5px;
 
 		margin: 15px 15px 15px 15px;
@@ -418,9 +418,11 @@
 
 		border: none;
 
-		background: #6C6C6C;
+		background: #8FE173;
 
 		margin-left: -20px;
+
+		color:#fff;
 	}
 
 	.bttn-reject {
@@ -429,8 +431,9 @@
 
 		border: none;
 
-		background: #A3A3A3;
+		background: #F58282;
 		border-radius: 0 0 5px 0;
+		color:#fff;
 	}
 
 	.ship-block {
