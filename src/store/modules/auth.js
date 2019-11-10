@@ -3,7 +3,7 @@ import { USER_REQUEST } from 'src/store/actions/user'
 import auth from 'src/api/auth'
 
 const state = {
-    token: '',
+    token: localStorage.getItem('user-token'),
     status: '',
     hasLoadedOnce: false
 };
@@ -46,12 +46,6 @@ const actions = {
       })
     })
   },
-  [AUTH_LOGOUT]: ({commit}) => {
-    return new Promise((resolve) => {
-      commit(AUTH_LOGOUT);
-      resolve()
-    })
-  }
 };
 
 const mutations = {
@@ -71,6 +65,7 @@ const mutations = {
     state.hasLoadedOnce = true
   },
   [AUTH_LOGOUT]: (state) => {
+    localStorage.removeItem('user-token');
     state.token = ''
   }
 };
