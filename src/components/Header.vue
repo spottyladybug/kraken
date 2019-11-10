@@ -1,16 +1,19 @@
 <template>
 <div class="header">
     <b-nav tabs align="flex-end">
-        <b-nav-item style="margin-right: 54px" @click="showModal(true)">Войти</b-nav-item>
+        <b-nav-item v-if="!isProfileLoaded" style="margin-right: 54px" @click="showModal(true)">Войти</b-nav-item>
         <LoginModal ref="login"/>
-        <b-nav-item style="margin-right: 10em" @click="showModal(false)">Регистрация</b-nav-item>
+        <b-nav-item v-if="!isProfileLoaded" style="margin-right: 10em" @click="showModal(false)">Регистрация</b-nav-item>
         <RegModal ref="reg"/>
+        <b-nav-item v-if="isProfileLoaded" style="margin-right: 10em">Выход</b-nav-item>
     </b-nav>
 </div>
 </template>
 <script>
 import RegModal from 'src/components/RegModal'
 import LoginModal from 'src/components/LoginModal'
+import { mapGetters } from "vuex";
+import { AUTH_LOGOUT } from "src/store/actions/auth";
 export default {
   name: "Header",
   components: {
@@ -23,7 +26,17 @@ export default {
       isLoginModal: false,
     }
   },
+    computed: {
+    ...mapGetters([
+      "isProfileLoaded"
+    ]),
+  },
   methods: {
+     logout: function() {
+        this.$store
+            .dispatch(AUTH_LOGOUT)
+            .then(() => this.$router.push({ name: "login" }));
+    },
       showModal(modal) {
           if (modal) {
               this.$refs['login'].showModalAutorization();
