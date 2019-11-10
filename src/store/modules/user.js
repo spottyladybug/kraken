@@ -13,8 +13,8 @@ const state = {
 };
 
 const getters = {
-  name: state => state.name,
-  isProfileLoaded: state => !!state.name,
+  email: state => state.email,
+  isProfileLoaded: state => !!state.email,
 };
 
 const actions = {
@@ -36,13 +36,21 @@ const mutations = {
   },
   [USER_SUCCESS]: (state, resp) => {
     state.status = 'success';
-    Vue.set(state, 'name', resp)
+    Vue.set(state, 'email', resp)
+    Vue.set(state, 'password', resp)
+    Vue.set(state, 'first_name', resp)
+    Vue.set(state, 'last_name', resp)
+    Vue.set(state, 'phone', resp)
   },
   [USER_ERROR]: (state) => {
     state.status = 'error'
   },
   [AUTH_LOGOUT]: (state) => {
-    state.name = undefined
+    state.email = undefined,
+    state.password = undefined,
+    state.first_name = undefined,
+    state.last_name = undefined,
+    state.phone = undefined
   }
 };
 
