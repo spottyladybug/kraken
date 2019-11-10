@@ -147,7 +147,7 @@
 		align-items: center;
 		justify-content: center;
 
-		idth: 95px;
+		width: 95px;
 		height: 89px;
 	}
 
