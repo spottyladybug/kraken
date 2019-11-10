@@ -93,7 +93,6 @@
       <b-progress  
         :value="boat.racetrackCount" 
         show-value
-        max="5" 
         class="mt-1"></b-progress>
     </div>
   </div>
@@ -120,13 +119,14 @@ export default {
     }
   },
   created() {
-    setTimeout(() => {
-      this.pushToBoatAct();
-    }, 500);
+    setInterval(() => this.setBoatsRequest(), 6000); 
+
+    // setTimeout(() => {
+    //   this.pushToBoatAct();
+    // }, 500);
 
     for (let index = 0; index < this.boats.length; index++) {
       this.boats[index].color = this.getRandomColor();
-      
     }
     // this.pushToBoat();
 
@@ -142,10 +142,11 @@ export default {
     //         let timeOfRegut = Date.parse(this.reguts[i].time);// YYYY-MM-DDTHH:mm
 
     //         if (timeOfRegut - now <= 1800000 && timeOfRegut - now >= 0) { // если регат пройдет через полчаса или меньше
-    //             setInterval(() => this.setBoatsRequest().catch(() => {}), 5000); // начинаем отслеживать лодки
+                // начинаем отслеживать лодки
     //         }
     //     }
     // }, 6000);
+    
 
   },
 
@@ -216,7 +217,7 @@ export default {
     ...mapActions([
           'setBoatsRequest',
           'getRegat',
-          'pushToBoatAct'
+          // 'pushToBoatAct'
       ]),
     
     ...mapMutations([

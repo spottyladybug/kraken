@@ -1,4 +1,4 @@
-import Repository from 'src/api/repository';
+import { Repository } from 'src/api/repository';
 
 const state = {
     reguts: [
@@ -124,9 +124,9 @@ const mutations = {
         state.boats = boats;
     },
 
-    pushToBoat(state, cord) {
-        state.boats[5].cords.push(cord);
-    },
+    // pushToBoat(state, cord) {
+    //     state.boats[5].cords.push(cord);
+    // },
 
     setRegats (state, reguts) {
         state.reguts = reguts;
@@ -134,13 +134,6 @@ const mutations = {
 
     countBoatRace (state, boatId) {
         state.boats.filter(boat => boat.id == boatId)[0].racetrackCount += 1;
-    },
-
-    makeUpdatedTrue(state, boatId) {
-        state.boats.filter(boat => boat.id == boatId)[0].updated = true;
-    },
-    makeUpdatedFalse(state, boatId) {
-        state.boats.filter(boat => boat.id == boatId)[0].updated = false;
     },
 
     updateRaceCords(state, boatId) {
@@ -152,7 +145,8 @@ const mutations = {
 const actions = {
 
     async setBoatsRequest(context) {
-        const req = await Repository.get('boats');
+        const req = await Repository.get('/api/coordinates/');
+        alert(req.data);
         context.commit('setBoats', req.data);
     },
 
@@ -161,22 +155,22 @@ const actions = {
         context.commit('setRegats', req.data);
     },
 
-    async pushToBoatAct(context) {
+    // async pushToBoatAct(context) {
 
-          for (let index = 0; index < state.fakeBoatCoards.length; index++) {
+    //       for (let index = 0; index < state.fakeBoatCoards.length; index++) {
 
-            let promise = new Promise((resolve) => {
-                setTimeout(() => resolve(state.fakeBoatCoards[index]), 1000)
-              });
+    //         let promise = new Promise((resolve) => {
+    //             setTimeout(() => resolve(state.fakeBoatCoards[index]), 1000)
+    //           });
             
-            let result = await promise; 
+    //         let result = await promise; 
     
-            context.commit('pushToBoat', result);
+    //         context.commit('pushToBoat', result);
             
             
-        }
+    //     }
         
-    } 
+    // } 
 };
 
 export default {
