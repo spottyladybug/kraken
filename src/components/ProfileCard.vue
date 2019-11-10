@@ -82,8 +82,7 @@
 <style>
 	
 	.profile-info {
-		width: 350px;
-		height: 531px;
+		width: 100%;
 
 		
 		border: 1px solid #F4F4F4;
@@ -93,22 +92,26 @@
 		font-family: Roboto;
 	}
 
+	@media (max-width: 1190px) {
+		.profile-info {display: none;}
+	}
+
 	.avatar {
-		display: flex;
+		/* display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: center; */
 
 
-		width: 95px;
-		height: 89px;
+		width: 100%;
+		/* height: 89px; */
 	}
 
 	.fake-img {
 		background-color: #C4C4C4;
 		border-radius: 13px 0px 0px 0px;
 
-		width: 95px;
-		height: 89px;
+		/* width: 95px; */
+		/* height: 89px; */
 	}
 
 	.main-info {
@@ -137,8 +140,8 @@
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: 100;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1rem;
+		line-height: 1.085em;
 	}
 
 	.icon {
@@ -163,35 +166,35 @@
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1rem;
+		line-height: 1.0875em;
 		color: #555555;
 
-		margin-bottom: 7px;
-		margin-top: 15px;
+		margin-bottom: 0.5em;
+		margin-top: 0.925em;
 	}
 
 	.email-info {
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1em;
+		line-height: 1.0875em;
 
-		margin-bottom: 13px;
+		margin-bottom: 0.825em;
 	}
 
 	.number-heats {
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1em;
+		line-height: 1.0875em;
 
 
 		color: #555555;
 
-		margin-bottom: 15px;
+		margin-bottom: 0.925em;
 	}
 
 	.heats-block {
@@ -208,22 +211,22 @@
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1em;
+		line-height: 1.0875em;
 
-		margin-bottom: 16px;
+		margin-bottom: 1em;
 	}
 
 	.passport-info {
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1em;
+		line-height: 1.0875em;
 
 		color: #555555;
 
-		margin-bottom: 16px;
+		margin-bottom: 1em;
 	}
 
 	.plus {
@@ -249,8 +252,8 @@
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 19px;
+		font-size: 1em;
+		line-height: 1.0875em;
 
 
 		color: #555555;
@@ -259,6 +262,6 @@
 	}
 
 	#textarea-about {
-		width: 295px;
+		width: 100%;
 	}
 </style>

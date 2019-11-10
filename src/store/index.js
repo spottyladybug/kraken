@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import map from './modules/map'
 import user from 'src/store/modules/user'
 import auth from 'src/store/modules/auth'
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
     modules: {
         user,
         auth,
+        map
     },
     strict: debug,
 })

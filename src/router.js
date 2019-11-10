@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import MapPage from 'src/pages/MapPage'
 import home from 'src/pages/home'
 import profile from 'src/pages/profile'
 import boat from 'src/pages/boat'
@@ -20,7 +21,11 @@ export default new Router({
             name: 'home',
             component: home,
         },
-        
+        {
+            path: '/map',
+            name: 'map',
+            component: MapPage,
+        },
         {
             path: '/profile',
             name: 'profile',
