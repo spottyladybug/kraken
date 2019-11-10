@@ -1,11 +1,11 @@
 <template>
 <div class="header">
     <b-nav tabs align="flex-end">
-        <b-nav-item v-if="!isProfileLoaded" style="margin-right: 54px" @click="showModal(true)">Войти</b-nav-item>
+        <b-nav-item v-if="!isAuthenticated" style="margin-right: 54px" @click="showModal(true)">Войти</b-nav-item>
         <LoginModal ref="login"/>
-        <b-nav-item v-if="!isProfileLoaded" style="margin-right: 10em" @click="showModal(false)">Регистрация</b-nav-item>
+        <b-nav-item v-if="!isAuthenticated" style="margin-right: 10em" @click="showModal(false)">Регистрация</b-nav-item>
         <RegModal ref="reg"/>
-        <b-nav-item v-if="isProfileLoaded" style="margin-right: 10em">
+        <b-nav-item v-if="isAuthenticated" style="margin-right: 10em" @click="logout">
             Выход
             <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
@@ -41,13 +41,13 @@ export default {
   },
     computed: {
     ...mapGetters([
-      "isProfileLoaded"
+      "isAuthenticated"
     ]),
   },
   methods: {
      logout: function() {
         this.$store
-            .dispatch(AUTH_LOGOUT)
+            .commit(AUTH_LOGOUT)
             .then(() => this.$router.push({ name: "login" }));
     },
       showModal(modal) {
