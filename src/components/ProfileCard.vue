@@ -67,7 +67,7 @@
 								<b-form-textarea 
 								id="textarea-about" 
 								placeholder="Описание"
-								rows="5"
+								rows="4"
 								></b-form-textarea>
 							</b-col>
 						</b-row>
@@ -263,5 +263,6 @@
 
 	#textarea-about {
 		width: 100%;
+		margin-bottom: 20px;
 	}
 </style>
