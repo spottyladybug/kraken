@@ -5,12 +5,14 @@
         <b-row class="my-4">
           <b-col class="field" lg="12">
           <b-form-input 
+          v-model="email"
           class="type-email" 
           type="email" 
           placeholder="Email"></b-form-input>
           </b-col>
           <b-col class="field" lg="12">
           <b-form-input 
+          v-model="password"
           class="type-password" 
           type="password" 
           placeholder="Пароль"></b-form-input>
@@ -19,7 +21,7 @@
 
         <b-row>
           <b-col lg="12">
-            <b-button class="success" variant="primary">Вход</b-button>
+            <b-button class="success" variant="primary" @click="login">Вход</b-button>
           </b-col>
         </b-row>
       </b-container>
@@ -27,11 +29,13 @@
 </template>
 
 <script>
+import {AUTH_REQUEST} from 'src/store/actions/auth'
 export default {
   name: "LoginModal",
   data() {
     return {
-
+        email: '',
+        password: '',
     }
   },
   methods: {
@@ -42,6 +46,12 @@ export default {
     hideModalAutorization() {
       this.$refs['aut-modal'].hide()
     },
+    login() {
+      const {email, password} = this;
+        this.$store.dispatch(AUTH_REQUEST, {email, password}).then(() => {
+          return this.$router.push({ name: 'home' })
+        })
+    }
   }
 }
 </script>
