@@ -66,6 +66,13 @@ export default new Router({
             path: '/cap-find',
             name: 'cap-find',
             component: capfind,
+        },
+
+        {
+            path: '*',
+            redirect: '/profile',
+            name: 'cap-find',
+            component: capfind,
         }
     ],
 })
