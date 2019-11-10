@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-export default axios.create({
-    baseURL: 'http://satellite.test', // ввести url сервера
-    timeout: 5000,
+export const Repository = axios.create({
+    baseURL: 'http://188.93.211.71:8000', // ввести url сервера
     headers: {
-        'X-Auth-Token': '', //TODO: было бы неплохо
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json;charset=utf-8',
+        'Authorization': localStorage.getItem('user-token') ? `JWT ${localStorage.getItem('user-token')}` : '',
     }
 })
