@@ -4,7 +4,7 @@
 			<b-row>
 				<b-col lg="8">
 					<b-row>
-						<b-col lg="7">
+						<b-col lg="12">
 							<div class="ttl">
 								Регистрация капитана
 							</div>
@@ -36,16 +36,6 @@
 									<div class="ttl-boat">Права капитана</div>
 									<AddFile/>
 								</b-col>
-								<b-col lg="6"><div class="ttl-doc">Документы</div></b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<div class="plus"> 
-									<div class="circle">
-										+
-									</div>
-									</div>
-								</b-col>
 								<b-col cols="12" xl="6">
 									<div class="ttl-doc">Документы</div>
 									<AddFile/>
@@ -71,6 +61,13 @@
 				</b-col>
 
 				<b-col lg="4">
+					<b-row>
+						<b-col lg="12">
+							<div class="ttl">
+								Информация о пользователе 
+							</div>
+						</b-col>
+					</b-row>
 					<ProfileCard/>
 				</b-col>
 			</b-row>
@@ -91,13 +88,23 @@
 </script>
 
 <style scoped>
+	#cap {
+		padding-bottom: 8vh;
+	}
+
 	.ttl {
 		
-		font-size: 30px;
-		line-height: 35px;
-		margin: 0 0 38px 0; 
+		font-size: 22px;
+		line-height: 26px;
+		margin-bottom: 1em; 
 
 		font-family: Roboto;
+	}
+
+	@media (max-width: 1190px) {
+		.ttl:last-of-type {
+			display: none;
+		}
 	}
 
 	.ttl-boat {

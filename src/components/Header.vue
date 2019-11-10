@@ -1,5 +1,14 @@
 <template>
 <div class="header">
+    <b-row>
+    <b-col lg="6" class="start" >
+    <b-nav tabs align="flex-start">
+        <b-nav-item style="margin-left: 54px">
+            <router-link :to="{ name: 'map' }">Мероприятия</router-link>
+        </b-nav-item>
+        </b-nav>
+    </b-col>
+    <b-col lg="6" class="end" >
     <b-nav tabs align="flex-end">
         <b-nav-item v-if="!isAuthenticated" style="margin-right: 54px" @click="showModal(true)">Войти</b-nav-item>
         <LoginModal ref="login"/>
@@ -20,6 +29,8 @@
 </svg>
         </b-nav-item>
     </b-nav>
+    </b-col>
+    </b-row>
 </div>
 </template>
 <script>
@@ -63,16 +74,23 @@ export default {
 </script>
 <style scoped>
 .header {
-    display: flex;
     width:100%;
+    background: #17A4D2;
+    display: inline-block;
+}
+.start {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.end {
     justify-content: flex-end;
     align-items: flex-end;
-    background: #17A4D2;
 }
 .nav {
     height: 80px;
     text-align: center;
     align-content: center;
+    justify-content: inherit;
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
     border: none;

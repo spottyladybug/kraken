@@ -73,6 +73,13 @@ export default new Router({
             path: '/admin',
             name: 'admin',
             component: admin,
+        },
+
+        {
+            path: '*',
+            redirect: '/profile',
+            name: 'cap-find',
+            component: capfind,
         }
     ],
 })
