@@ -34,7 +34,10 @@
 				</b-col>
 
 				<b-col lg="4">
-					<ProfileCard/>
+					<div class="ttl">Информация о пользователе</div>
+						<div class="prof-card">
+							<ProfileCard/>
+						</div>
 				</b-col>
 			</b-row>
 		</b-container>
@@ -53,7 +56,7 @@
 <style scoped>
 	.ttl {
 		
-		font-size: 30px;
+		font-size: 22px;
 		line-height: 35px;
 		margin: 0 0 38px 0; 
 
@@ -129,7 +132,7 @@
 		line-height: 23px;
 
 		font-family: Roboto;
-		background: #7AEC52;
+		background: #78D657;
 		border-radius: 5px;
 		border: none;
 
