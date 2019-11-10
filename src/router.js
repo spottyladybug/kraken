@@ -9,6 +9,7 @@ import sailor from 'src/pages/sailor'
 import helper from 'src/pages/helper'
 import capsforsea from 'src/pages/caps-for-sea'
 import capfind from 'src/pages/cap-find'
+import admin from 'src/pages/admin'
 ;
 
 Vue.use(Router);
@@ -66,6 +67,12 @@ export default new Router({
             path: '/cap-find',
             name: 'cap-find',
             component: capfind,
+        }, 
+
+        {
+            path: '/admin',
+            name: 'admin',
+            component: admin,
         }
     ],
 })
