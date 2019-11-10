@@ -33,7 +33,7 @@ export default {
     background: #17A4D2;
 }
 .nav {
-    height: 95px;
+    /* height: 95px; */
     text-align: center;
     align-content: center;
 }
