@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import MapPage from 'src/pages/MapPage'
-import home from 'src/pages/home'
+import Home from 'src/pages/home'
 import profile from 'src/pages/profile'
 import boat from 'src/pages/boat'
 import cap from 'src/pages/cap'
@@ -20,7 +20,7 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: home,
+            component: Home,
         },
         {
             path: '/map',
