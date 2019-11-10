@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-      This is Home
+    <router-view></router-view>
   </div>
 </template>
 
@@ -9,3 +9,8 @@ export default {
   name: 'Home'
 }
 </script>
+<style scoped>
+
+
+
+</style>

@@ -21,10 +21,11 @@ export default {
 </script>
 
 <style>
-.app {
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+/*.app {
   min-height: 100rem;
 }
 .content {
-    min-height: 60rem;
-}
+    min-height: 100%;
+}*/
 </style>
