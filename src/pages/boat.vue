@@ -4,7 +4,7 @@
 			<b-row>
 				<b-col lg="8">
 					<b-row>
-						<b-col lg="2">
+						<b-col lg="8">
 							<div class="ttl">
 								Регистрация cудна
 							</div>
@@ -74,7 +74,12 @@
 				</b-col>
 
 				<b-col lg="4">
-					<ProfileCard/>
+					<div class="all-profile-block">
+						<div class="ttl">Информация о пользователе</div>
+						<div class="prof-card">
+							<ProfileCard/>
+						</div>
+					</div>
 				</b-col>
 			</b-row>
 		</b-container>
@@ -93,11 +98,12 @@
 <style scoped>
 	.ttl {
 		
-		font-size: 30px;
+		font-size: 22px;
 		line-height: 35px;
 		margin: 0 0 38px 0; 
 
 		font-family: Roboto;
+
 	}
 
 	.ttl-boat {
@@ -158,7 +164,7 @@
 		border-radius: 5px;
 
 
-		margin-bottom: 140px;
+		margin-bottom: 155px;
 
 		font-family: Roboto;
 	}
@@ -170,7 +176,7 @@
 		font-size: 20px;
 		line-height: 23px;
 
-		background: #7AEC52;
+		background: #78D657;
 		border-radius: 5px;
 		border: none;
 

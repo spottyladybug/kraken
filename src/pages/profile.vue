@@ -13,6 +13,7 @@
 
 					<b-row>
 						<b-col lg="6">
+							<router-link :to="{ name: 'boat' }">
 							<div class="role">
 								<div class="role-ttl">
 									Владелец судна
@@ -24,8 +25,10 @@
 								<img src="../img/Group.svg" alt="placeholder+image">
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 						<b-col lg="6">
+							<router-link :to="{ name: 'cap' }">
 							<div class="role">
 								<div class="role-ttl-2">
 									Капитан
@@ -37,8 +40,10 @@
 									<img src="../img/captain 1.svg" alt="placeholder+image">
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 						<b-col lg="6">
+							<router-link :to="{ name: 'sailor' }">
 							<div class="role">
 								<div class="role-ttl-3">
 									Матрос
@@ -53,8 +58,10 @@
 
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 						<b-col lg="6">
+							<router-link :to="{ name: 'helper' }">
 							<div class="role">
 								<div class="role-ttl-4">
 									Помощник орг.
@@ -67,13 +74,19 @@
 									<img src="../img/support 1.svg" alt="placeholder+image">
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 
 					</b-row>
 				</b-col>
 
 				<b-col lg="4">
-					<ProfileCard/>
+					<div class="all-profile-block">
+						<div class="ttl">Информация о пользователе</div>
+						<div class="prof-card">
+							<ProfileCard/>
+						</div>
+					</div>
 				</b-col>
 			</b-row>
 		</b-container>
@@ -93,10 +106,14 @@
 <style scoped>
 	.ttl {
 		
-		font-size: 30px;
+		font-size: 22px;
 		line-height: 35px; 
 
 		font-family: Roboto;
+	}
+
+	.prof-card {
+		padding: 30px 0 0 0;
 	}
 
 	.role {

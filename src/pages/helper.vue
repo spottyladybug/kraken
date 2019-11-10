@@ -34,7 +34,12 @@
 				</b-col>
 
 				<b-col lg="4">
-					<ProfileCard/>
+					<div class="all-profile-block">
+						<div class="ttl">Информация о пользователе</div>
+						<div class="prof-card">
+							<ProfileCard/>
+						</div>
+					</div>
 				</b-col>
 			</b-row>
 		</b-container>
@@ -53,7 +58,7 @@
 <style scoped>
 	.ttl {
 		
-		font-size: 30px;
+		font-size: 22px;
 		line-height: 35px;
 		margin: 0 0 38px 0; 
 

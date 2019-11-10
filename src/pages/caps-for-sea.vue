@@ -2,6 +2,8 @@
 	<div id="caps-for-sea">
 		<b-container class="py-4">
 			<b-row>
+
+
 				<b-col lg="8">
 					<b-row>
 						<b-col lg="12">
@@ -45,6 +47,7 @@
 										</b-row>
 									</div>
 								</b-col>
+								
 
 								<b-col lg="6">
 									<div class="cap-card">
@@ -262,15 +265,23 @@
 						
 					</b-row>
 				</b-col>
+
+	
+
+
+
 				<b-col lg="4">
 					<b-row>
 						<b-col lg="12">
-							
-							<div class="ttl-cap">
-								Заявки капитанов
-							</div>
+
+							<b-row>
+								<div class="ttl-cap">
+									Заявки капитанов
+								</div>
+							</b-row>
 								
 							<div class="ship-block">
+
 								<b-row>
 									<b-col lg="4">
 										<div class="ship-photo">
@@ -301,6 +312,8 @@
 						</b-col>
 					</b-row>
 				</b-col>
+
+
 			</b-row>
 		</b-container>
 	</div>
@@ -327,6 +340,10 @@
 		font-family: Roboto;
 
 		margin-left: 28px;
+	}
+
+	.ttl-cap:last-of-type {
+		margin-bottom: 0.3em;
 	}
 
 	.counter {

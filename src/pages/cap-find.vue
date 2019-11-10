@@ -11,7 +11,15 @@
 										Заявки капитанов
 									</div>
 
-									<div class="counter">количество заявок: <b>8</b></div>
+									<div class="counter">количество заявок: <b>4</b></div>
+								</b-col>
+
+								<b-col lg="6" class="pl-5">
+									<div class="ttl">
+										Команда
+									</div>
+
+									<div class="counter">доступные места: <b>5</b></div>
 								</b-col>
 							</b-row>
 							<b-row>
@@ -138,9 +146,10 @@
 								<b-col lg="6">
 									
 									<div class="plus"> 
-									<div class="circle">
-										+
-									</div>
+										<div class="comad-spase">Добавить матроса</div>
+										<div class="circle">
+											+
+										</div>
 									</div>
 								</b-col>
 
@@ -149,7 +158,12 @@
 					</b-row>
 				</b-col>
 				<b-col lg="4">
-					<!-- <ProfileCard/> -->
+					<div class="all-profile-block">
+						<div class="ttl">Информация о пользователе</div>
+						<div class="prof-card">
+							<ProfileCard/>
+						</div>
+					</div>
 				</b-col>
 			</b-row>
 		</b-container>
@@ -157,22 +171,25 @@
 </template>
 
 <script>
-	// import ProfileCard from 'src/components/ProfileCard'
+	import ProfileCard from 'src/components/ProfileCard'
 	export default {
 		components: {
-			// ProfileCard,
+			ProfileCard,
 		}
 	}
 </script>
 
 <style scoped>
 	.ttl {
-			
+		width: 350px;	
+
 		font-size: 22px;
 		line-height: 26px; 
 
 		font-family: Roboto;
 	}
+
+	
 
 	.ttl-cap {
 		font-size: 22px;
@@ -244,7 +261,7 @@
 		font-size: 20px;
 		line-height: 23px;
 
-		background: #7AEC52;
+		background: #78D657;
 		border-radius: 5px;
 		border: none;
 
@@ -261,15 +278,28 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex-direction: column;
 
 		width: 349px;
 		height: 114px;
 
-		margin: 8px 0 45px 55px;
+		margin: 15px 0 45px 30px;
 
 		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07);
 		border-radius: 5px;
 		background: #FFFFFF;
+	}
+
+	.comad-spase {
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 19px;
+
+		margin-bottom: 5px;
+
+		color: #333333;
 	}
 
 	.circle {
@@ -291,7 +321,7 @@
 
 	}
 
-		.cap-card {
+	.cap-card {
 		display: flex;
 		flex-wrap: wrap;
 
@@ -387,6 +417,15 @@
 		background: #F58282;
 		border-radius: 0 0 5px 0;
 		color:#fff;
+	}
+
+	.prof-card {
+		padding: 37px 0 0 0;
+	}
+
+
+	.all-profile-block {
+		margin: 0 0 0 55px;;
 	}
 
 	
