@@ -17,7 +17,7 @@
 								<b-col lg="12">
 									<b-form-input 
 									class="type" 
-									type="number" 
+									type="text" 
 									placeholder="Номер прав"
 									></b-form-input>
 								</b-col>
@@ -25,22 +25,21 @@
 									<b-form-input 
 									class="type" 
 									type="number" 
+									min="0"
 									placeholder="Количество матросов"
 									></b-form-input>
 								</b-col>
 							</b-row>
 							
 							<b-row>
-								<b-col lg="6">
+								<b-col cols="12" xl="6">
 									<div class="ttl-boat">Права капитана</div>
+									<AddFile/>
 								</b-col>
-								<b-col lg="6"><div class="ttl-doc">Документы</div></b-col>
-							</b-row>
-							<b-row>
-								<b-col lg="6">
-									<div class="add-img-boat">+</div>
+								<b-col cols="12" xl="6">
+									<div class="ttl-doc">Документы</div>
+									<AddFile/>
 								</b-col>
-								<b-col lg="6"><b-button class="success" variant="success">Загрузить</b-button></b-col>
 							</b-row>
 						</b-col>
 						<b-col lg="6">
@@ -51,12 +50,10 @@
 									placeholder="Опыт"
 									rows="9"
 									></b-form-textarea>
-								</b-col>
-							</b-row>
+								<!-- </b-col>
 							
-							<b-row>
-								<b-col lg="12" class="pl-0">
-									<b-col lg="6"><b-button class="success-big" variant="success">Зарегистрировать</b-button></b-col>
+								<b-col lg="12" class="pl-0"> -->
+									<b-button class="success-big" block variant="success">Зарегистрировать</b-button>
 								</b-col>
 							</b-row>
 						</b-col>
@@ -73,9 +70,12 @@
 
 <script>
 	import ProfileCard from 'src/components/ProfileCard'
+	import AddFile from 'src/components/AddFile'
+
 	export default {
 		components: {
 			ProfileCard,
+			AddFile
 		}
 	}
 </script>
@@ -150,7 +150,7 @@
 	}
 
 	.success-big {
-		width: 350px;
+		width: 100%;
 		height: 60px;
 
 		font-size: 20px;
