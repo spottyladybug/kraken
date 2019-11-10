@@ -122,7 +122,7 @@
 	}
 
 	.success-big {
-		width: 350px;
+		width: 100%;
 		height: 60px;
 
 		font-size: 20px;
@@ -130,7 +130,7 @@
 
 		
 		font-family: Roboto;
-		background: #7AEC52;
+		background: #78D657;
 		border-radius: 5px;
 		border: none;
 
