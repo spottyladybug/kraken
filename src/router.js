@@ -2,7 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MapPage from 'src/pages/MapPage'
 import home from 'src/pages/home'
-import Capitan from 'src/pages/Capitan'
+import profile from 'src/pages/profile'
+import boat from 'src/pages/boat'
+import cap from 'src/pages/cap'
+import sailor from 'src/pages/sailor'
+import helper from 'src/pages/helper'
+import capsforsea from 'src/pages/caps-for-sea'
 ;
 
 Vue.use(Router);
@@ -21,24 +26,39 @@ export default new Router({
             component: MapPage,
         },
         {
-            path: '/registration/capitan',
-            name: 'capitan',
-            component: Capitan,
+            path: '/profile',
+            name: 'profile',
+            component: profile,
         },
-        // {
-        //     path: '/registration/ship',
-        //     name: 'ship',
-        //     component: MapPage,
-        // },
-        // {
-        //     path: '/registration/sailor',
-        //     name: 'sailor',
-        //     component: MapPage,
-        // },
-        // {
-        //     path: '/registration/assistant',
-        //     name: 'assistant',
-        //     component: MapPage,
-        // },
+
+        {
+            path: '/boat',
+            name: 'boat',
+            component: boat,
+        },
+
+        {
+            path: '/cap',
+            name: 'cap',
+            component: cap,
+        },
+
+        {
+            path: '/sailor',
+            name: 'sailor',
+            component: sailor,
+        },
+
+        {
+            path: '/helper',
+            name: 'helper',
+            component: helper,
+        },
+
+        {
+            path: '/caps-for-sea',
+            name: 'caps-for-sea',
+            component: capsforsea,
+        }
     ],
 })

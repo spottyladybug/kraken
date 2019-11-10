@@ -84,6 +84,7 @@ export default {
     register() {
       const {email, password, first_name, last_name, phone} = this;
         this.$store.dispatch(REGISTER_REQUEST, {email, password, first_name, last_name, phone}).then(() => {
+          this.hideModalRegistration();
           return this.$router.push({ name: 'home' })
         })
     }
