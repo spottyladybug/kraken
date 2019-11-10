@@ -29,7 +29,7 @@
                         id="textarea"
                         v-model="text"
                         placeholder="Опыт"
-                        rows="6"
+                        rows="10"
                         no-resize
                         ></b-form-textarea>
                         <b-button block size="lg">Зарегистрировать</b-button>

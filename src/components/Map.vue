@@ -11,7 +11,7 @@
             <b-col sm="12" md="5" lg="4" class="mb-3">
                 <b-input-group-append class="d-flex justify-content-end">
                     <b-button @click="singelBoatId=''" variant="secondary" class="mr-3">Все игроки</b-button>
-                    <b-button  @click="showTracksTogler" variant="dark">Показать треки</b-button>
+                    <b-button  @click="showTracksTogler" variant="dark">{{ (showTracks) ? 'Скрыть' : 'Показать'}} треки</b-button>
                 </b-input-group-append>
             </b-col>
         </b-row>
@@ -33,7 +33,7 @@
         marker-type="placemark"
         :markerId="boat.id"
         :coords="boat.cords[boat.cords.length - 1]"
-        :balloon="{header: `Гонщик №${boat.id}`, body: `Место: ${boat.id}`, footer: `Круг: ${boat.id}`}"
+        :balloon="{header: `Гонщик №${boat.id}`, body: `Место: ${boat.id}`, footer: `Круг: ${boat.racetrackCount}`}"
         :icon="{color: 'black', content: 'doticon', glyph: 'waterway'}"
     ></ymap-marker>
 
@@ -42,10 +42,10 @@
       :key="boat.id + 'TRACK'"
       :markerId="boat.id + 'TRACK'"
       marker-type="Polyline"
-      :marker-stroke="{color: getRandomColor(), width: 3}"
-      :marker-fill="{color: getRandomColor(), opacity: 0.4}"
+      :marker-stroke="{color: boat.color, width: 3}"
+      :marker-fill="{color: boat.color, opacity: 0.4}"
       :coords="boat.cords"
-      :balloon="{header: `Гонщик №${boat.id}`, body: `Место: ${boat.id}`, footer: `Круг: ${boat.id}`}"
+      :balloon="{header: `Гонщик №${boat.id}`, body: `Место: ${boat.id}`, footer: `Круг: ${boat.racetrackCount}`}"
     ></ymap-marker>
 
     <ymap-marker 
@@ -77,6 +77,28 @@
     ></ymap-marker>
     
   </yandex-map>
+
+
+  <div class="wrapper">
+    <h4 class="mt-2">Прогресс гонки: </h4>
+    <div 
+      class="mt-3 mb-4"
+      v-for="boat in neededBoats"
+      :key="boat.id">
+      <h6 
+        class="mt-1"
+        :style="{'display': 'inline-block'}"
+        >Игрок №{{boat.id}}</h6>
+      <div class="point ml-1" :style="{'background-color': boat.color}"></div>
+      <b-progress  
+        :value="boat.racetrackCount" 
+        show-value
+        max="5" 
+        class="mt-1"></b-progress>
+    </div>
+  </div>
+    
+
     </b-container>
   </div>
 </template>
@@ -84,7 +106,7 @@
 <script>
 
 import { yandexMap, ymapMarker } from 'vue-yandex-maps';
-import {mapGetters, mapActions} from 'vuex';
+import {mapGetters, mapActions, mapMutations} from 'vuex';
 
 
 export default {
@@ -92,14 +114,23 @@ export default {
   components: { yandexMap, ymapMarker },
   data() {
     return {
-        showTracks: false,
+        showTracks: true,
         singelBoatId: '',
         filteredBoats: [],
     }
   },
   created() {
+    setTimeout(() => {
+      this.pushToBoatAct();
+    }, 500);
 
-    //СЮДА ЕЩЕ ДОБАВИТЬ ВЫВОД НУЖНОГО РЕГАДА (ДЛЯ ОТРИСОВКИ ГОНОЧНОГО ТРЕКА ТРЕКА)
+    for (let index = 0; index < this.boats.length; index++) {
+      this.boats[index].color = this.getRandomColor();
+      
+    }
+    // this.pushToBoat();
+
+    // СЮДА ЕЩЕ ДОБАВИТЬ ВЫВОД НУЖНОГО РЕГАДА (ДЛЯ ОТРИСОВКИ ГОНОЧНОГО ТРЕКА ТРЕКА)
  
     // setInterval(() => {
     //     this.getRegat().catch(() => {})
@@ -115,6 +146,23 @@ export default {
     //         }
     //     }
     // }, 6000);
+
+  },
+
+  beforeUpdate() {
+    
+
+    //Обновляем кол-во кругов
+    for (let index = 0; index < this.boats.length; index++) {
+      const currentBoat = this.boats[index];
+      let lastCords = currentBoat.cords[currentBoat.cords.length - 1];
+      let distance = this.getDistanceBetween(lastCords[0], lastCords[1], this.reguts[0].cords[0][0],  this.reguts[0].cords[0][1]);
+
+      if (distance < 300 && currentBoat.cords.length > 5) {
+        this.countBoatRace(currentBoat.id);
+        this.updateRaceCords(currentBoat.id, currentBoat.cords);
+      } 
+    }
 
   },
 
@@ -153,10 +201,29 @@ export default {
         this.showTracks = !this.showTracks;
     },
 
+    getDistanceBetween(lat1, lon1, lat2, lon2){  // generally used geo measurement function
+        let R = 6378.137; // Radius of earth in KM
+        let dLat = lat2 * Math.PI / 180 - lat1 * Math.PI / 180;
+        let dLon = lon2 * Math.PI / 180 - lon1 * Math.PI / 180;
+        let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon/2) * Math.sin(dLon/2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        let d = R * c;
+        return d * 1000; // meters
+    },
+
     ...mapActions([
           'setBoatsRequest',
           'getRegat',
-      ])
+          'pushToBoatAct'
+      ]),
+    
+    ...mapMutations([
+        'countBoatRace',
+        'updateRaceCords',
+    ]),
+
   },
   
 }
@@ -167,4 +234,14 @@ export default {
     .control-panel {
         margin-bottom: 1em;
     }
+    .point {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      border-radius: 50%;
+    }
+    .wrapper {
+      margin: 3em 0;
+    }
 </style>
+
