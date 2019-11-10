@@ -5,7 +5,7 @@ import { AUTH_LOGOUT } from 'src/store/actions/auth'
 
 const state = {
     status: '',
-    name: 'Anna'
+    name: undefined
 };
 
 const getters = {

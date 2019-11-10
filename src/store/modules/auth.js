@@ -1,4 +1,4 @@
-import { AUTH_REQUEST, AUTH_ERROR, AUTH_SUCCESS, AUTH_LOGOUT } from 'src/store/actions/auth'
+import { REGISTER_REQUEST, AUTH_REQUEST, AUTH_ERROR, AUTH_SUCCESS, AUTH_LOGOUT } from 'src/store/actions/auth'
 import { USER_REQUEST } from 'src/store/actions/user'
 import auth from 'src/api/auth'
 
@@ -31,6 +31,23 @@ const actions = {
       })
     })
   },
+  [REGISTER_REQUEST]: ({commit, dispatch}, userData) => {
+    return new Promise((resolve, reject) => {
+      commit(REGISTER_REQUEST);
+      auth.register(userData)
+      .then(resp => {
+        localStorage.setItem('user-token', resp.token);
+        commit(AUTH_SUCCESS, resp);
+        dispatch(USER_REQUEST);
+        resolve(resp)
+      })
+      .catch(err => {
+        commit(AUTH_ERROR, err);
+        localStorage.removeItem('user-token');
+        reject(err)
+      })
+    })
+  },
   [AUTH_LOGOUT]: ({commit}) => {
     return new Promise((resolve) => {
       commit(AUTH_LOGOUT);
@@ -41,6 +58,9 @@ const actions = {
 };
 
 const mutations = {
+  [REGISTER_REQUEST]: (state) => {
+    state.status = 'loading'
+  },
   [AUTH_REQUEST]: (state) => {
     state.status = 'loading'
   },
