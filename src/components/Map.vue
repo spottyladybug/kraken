@@ -4,13 +4,13 @@
 
         <b-row class="pt-3">
             <b-col sm="12" md="7" lg="8" class="mb-3">
-                <b-input-group prepend=" Выбрать одного игрока: ">
+                <b-input-group :prepend="findName">
                     <b-form-input id="filter" v-model="singelBoatId" @input="filterBoats" type="number" min="1" :max="boats.length"></b-form-input>
                 </b-input-group>
             </b-col>
             <b-col sm="12" md="5" lg="4" class="mb-3">
                 <b-input-group-append class="d-flex justify-content-end">
-                    <b-button @click="singelBoatId=''" variant="secondary" class="mr-3">Все игроки</b-button>
+                    <b-button @click="singelBoatId=''; filteredBoats=[]" variant="secondary" class="mr-3">Все игроки</b-button>
                     <b-button  @click="showTracksTogler" variant="dark">{{ (showTracks) ? 'Скрыть' : 'Показать'}} треки</b-button>
                 </b-input-group-append>
             </b-col>
@@ -22,7 +22,7 @@
 
     <yandex-map 
       :controls="['fullscreenControl', 'typeSelector', 'zoomControl']"
-      :coords="[59.76020282061614,30.35863143876523]"
+      :coords="[59.97528688619642,29.915891456819185]"
       :zoom="10"
       style="width: 100%; height: 70vh;"
     >
@@ -88,7 +88,7 @@
       <h6 
         class="mt-1"
         :style="{'display': 'inline-block'}"
-        >Игрок №{{boat.id}}</h6>
+        >{{boat.name}} - №{{boat.id}}</h6>
       <div class="point ml-1" :style="{'background-color': boat.color}"></div>
       <b-progress  
         :max='5'
@@ -121,9 +121,13 @@ export default {
   },
   created() {
     setInterval(() => this.setBoatsRequest(), 6000); 
-    // setTimeout(() => {
-    //   this.pushToBoatAct();
-    // }, 500);
+
+    setTimeout(() => {
+      this.pushFakeToBoatAct();
+    }, 500);
+    setTimeout(() => {
+      this.pushFakeToBoatAct2();
+    }, 500);
 
     for (let index = 0; index < this.boats.length; index++) {
       this.boats[index].color = this.getRandomColor();
@@ -164,6 +168,10 @@ export default {
       neededBoatsForTraks() {
           return (this.showTracks) ? this.neededBoats : {};
       },
+
+      findName() {
+        return (this.filteredBoats.length) ? this.filteredBoats[0].name : 'Выбрать одного игрока';
+      }
       
   },
   methods: {
@@ -179,6 +187,10 @@ export default {
 
     filterBoats() {
         this.filteredBoats = this.boats.filter(boat => boat.id == this.singelBoatId);
+    },
+
+    formatValue() {
+        return this.boats.filter(value => this.boat.id == value).name;
     },
 
     showTracksTogler() {
@@ -200,7 +212,9 @@ export default {
     ...mapActions([
           'setBoatsRequest',
           'getRegat',
-          'pushToBoatAct'
+          'pushToBoatAct',
+          'pushFakeToBoatAct',
+          'pushFakeToBoatAct2'
       ]),
     
     ...mapMutations([
