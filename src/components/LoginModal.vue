@@ -49,6 +49,7 @@ export default {
     login() {
       const {email, password} = this;
         this.$store.dispatch(AUTH_REQUEST, {email, password}).then(() => {
+        this.hideModalAutorization();
           return this.$router.push({ name: 'home' })
         })
     }

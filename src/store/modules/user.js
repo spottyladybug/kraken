@@ -36,11 +36,11 @@ const mutations = {
   },
   [USER_SUCCESS]: (state, resp) => {
     state.status = 'success';
-    Vue.set(state, 'email', resp.fields)
-    Vue.set(state, 'password', resp.fields)
-    Vue.set(state, 'first_name', resp.fields)
-    Vue.set(state, 'last_name', resp.fields)
-    Vue.set(state, 'phone', resp.fields)
+    Vue.set(state, 'email', resp.data[0].fields)
+    Vue.set(state, 'password', resp.data[0].fields)
+    Vue.set(state, 'first_name', resp.data[0].fields)
+    Vue.set(state, 'last_name', resp.data[0].fields)
+    Vue.set(state, 'phone', resp.data[0].fields)
   },
   [USER_ERROR]: (state) => {
     state.status = 'error'
