@@ -13,6 +13,7 @@
 
 					<b-row>
 						<b-col lg="6">
+							<router-link :to="{ name: 'boat' }">
 							<div class="role">
 								<div class="role-ttl">
 									Владелец судна
@@ -24,8 +25,10 @@
 								<img src="../img/Group.svg" alt="placeholder+image">
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 						<b-col lg="6">
+							<router-link :to="{ name: 'cap' }">
 							<div class="role">
 								<div class="role-ttl-2">
 									Капитан
@@ -37,8 +40,10 @@
 									<img src="../img/captain 1.svg" alt="placeholder+image">
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 						<b-col lg="6">
+							<router-link :to="{ name: 'sailor' }">
 							<div class="role">
 								<div class="role-ttl-3">
 									Матрос
@@ -53,8 +58,10 @@
 
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 						<b-col lg="6">
+							<router-link :to="{ name: 'helper' }">
 							<div class="role">
 								<div class="role-ttl-4">
 									Помощник орг.
@@ -67,6 +74,7 @@
 									<img src="../img/support 1.svg" alt="placeholder+image">
 								</div>
 							</div>
+							</router-link>
 						</b-col>
 
 					</b-row>
