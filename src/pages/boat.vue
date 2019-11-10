@@ -34,7 +34,7 @@
 							<b-form-textarea 
 							id="textarea" 
 							placeholder="Описание"
-							rows="10"
+							rows="9"
 							></b-form-textarea>
 
 						</b-col>
@@ -191,7 +191,7 @@
 		width: 161px;
 		height: 97px;
 
-		margin: 8px 0 45px 55px;
+		margin: 8px 0 45px 0;
 
 		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07);
 		border-radius: 5px;
