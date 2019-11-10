@@ -1,6 +1,9 @@
 import { Repository } from 'src/api/repository';
 
 export default {
+    profile() {
+        return Repository.get('/api/roles/profile/');
+    },
     profiles() { // получение списка пользователей
         return Repository.get('/api/profiles');
     },
