@@ -45,6 +45,7 @@
 										+
 									</div>
 									</div>
+								</b-col>
 								<b-col cols="12" xl="6">
 									<div class="ttl-doc">Документы</div>
 									<AddFile/>
