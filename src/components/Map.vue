@@ -121,31 +121,14 @@ export default {
   created() {
     setInterval(() => this.setBoatsRequest(), 6000); 
 
-    // setTimeout(() => {
-    //   this.pushToBoatAct();
-    // }, 500);
+    setTimeout(() => {
+      this.pushToBoatAct();
+    }, 500);
 
     for (let index = 0; index < this.boats.length; index++) {
       this.boats[index].color = this.getRandomColor();
     }
     // this.pushToBoat();
-
-    // СЮДА ЕЩЕ ДОБАВИТЬ ВЫВОД НУЖНОГО РЕГАДА (ДЛЯ ОТРИСОВКИ ГОНОЧНОГО ТРЕКА ТРЕКА)
- 
-    // setInterval(() => {
-    //     this.getRegat().catch(() => {})
-
-    //     let now = Date.now();
-
-    //     for (let i = 0; i < this.reguts.length; i++) {
-
-    //         let timeOfRegut = Date.parse(this.reguts[i].time);// YYYY-MM-DDTHH:mm
-
-    //         if (timeOfRegut - now <= 1800000 && timeOfRegut - now >= 0) { // если регат пройдет через полчаса или меньше
-                // начинаем отслеживать лодки
-    //         }
-    //     }
-    // }, 6000);
     
 
   },
@@ -217,7 +200,7 @@ export default {
     ...mapActions([
           'setBoatsRequest',
           'getRegat',
-          // 'pushToBoatAct'
+          'pushToBoatAct'
       ]),
     
     ...mapMutations([

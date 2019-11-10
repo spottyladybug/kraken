@@ -1,6 +1,9 @@
 import { Repository } from 'src/api/repository';
 
 const state = {
+    allCords: [
+
+    ],
     reguts: [
         {
           time: '2012-09-11T20:00',
@@ -71,8 +74,7 @@ const state = {
         },
         {
           id: 3,
-          cords: [[59.94376383226636,30.30572504023785], [59.95857348144599,30.251480045120672], [59.970278736782134,30.184188785355055], 
-          [59.977193674248944,30.015199271268912]
+          cords: [[59.94376383226636,30.30572504023785], 
           ],
           racetrackCount: 1, 
           updated: true,
@@ -88,12 +90,7 @@ const state = {
         {
             id: 5,
             cords: [
-                  [59.94376383226636,30.30572504023785], [59.95857348144599,30.251480045120672], [59.970278736782134,30.184188785355055],
-                  [59.968557635962966,30.084625186722228], [59.9811994625523,29.970605237525266], [60.00710605716098,29.823865914317228],
-                  [60.04627904421609,29.735288643809408], [60.04162334293775,29.637076745481284], [60.019337199177,29.60717715617732],
-                  [59.970151497419906,29.666523264032556], [59.93869566163937,29.973693782995277], [59.92353240288514,30.149475032995294],
-                  [59.9187062710321,30.241485531042173], [59.9176720082952,30.264831478307787], [59.933093303477996,30.275937773581802],
-                  [59.93860642596479,30.300313689109146], [59.941615042559484,30.308167635985242],
+                  [],
                 ],
 
             racetrackCount: 3, 
@@ -102,7 +99,7 @@ const state = {
         {
             id: 6,
             cords: [
-                [59.94376383226636,30.30572504023785],
+                [],
               ],
             racetrackCount: 3, 
             updated: true,
@@ -114,6 +111,9 @@ const getters = {
     boats(state) {
         return state.boats;
     },
+    allCords(state) {
+        return state.allCords;
+    },
     reguts(state) {
         return state.reguts;
     }
@@ -123,13 +123,15 @@ const mutations = {
     setBoats (state, boats) {
         state.boats = boats;
     },
+    setAllCords (state, allCords) {
+        state.allCords = allCords;
+    },
 
-    // pushToBoat(state, cord) {
-    //     state.boats[5].cords.push(cord);
-    // },
-
-    setRegats (state, reguts) {
-        state.reguts = reguts;
+    pushToBoat(state) {
+        for (let index = 0; index < state.allCords.length; index++) {
+            const currentCord = state.allCords[index];
+            state.boats[currentCord.user_id].cords.push([currentCord.latitude, currentCord.longitude]);
+        }
     },
 
     countBoatRace (state, boatId) {
@@ -140,37 +142,38 @@ const mutations = {
         let currentCords = state.boats.filter(boat => boat.id == boatId)[0].cords;
         currentCords.splice(0, currentCords.length - 1);
     },
+    
 };
 
 const actions = {
 
     async setBoatsRequest(context) {
         const req = await Repository.get('/api/coordinates/');
-        alert(req.data);
-        context.commit('setBoats', req.data);
+        context.commit('setAllCords', req.data);
+        context.commit('pushToBoat');
     },
 
-    async getRegat(context) {
-        const req = await Repository.get('regutsTIME');
-        context.commit('setRegats', req.data);
-    },
+    // async getRegat(context) {
+    //     const req = await Repository.get('regutsTIME');
+    //     context.commit('setRegats', req.data);
+    // },
 
-    // async pushToBoatAct(context) {
+    async pushToBoatAct(context) {
 
-    //       for (let index = 0; index < state.fakeBoatCoards.length; index++) {
+          for (let index = 0; index < state.fakeBoatCoards.length; index++) {
 
-    //         let promise = new Promise((resolve) => {
-    //             setTimeout(() => resolve(state.fakeBoatCoards[index]), 1000)
-    //           });
+            let promise = new Promise((resolve) => {
+                setTimeout(() => resolve(state.fakeBoatCoards[index]), 1000)
+              });
             
-    //         let result = await promise; 
+            let result = await promise; 
     
-    //         context.commit('pushToBoat', result);
+            context.commit('pushToBoat', result);
             
             
-    //     }
+        }
         
-    // } 
+    } 
 };
 
 export default {
