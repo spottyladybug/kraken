@@ -1,5 +1,5 @@
 import { USER_REQUEST, USER_ERROR, USER_SUCCESS } from 'src/store/actions/user'
-import auth from 'src/api/auth'
+import request from 'src/api/request'
 import Vue from 'vue'
 import { AUTH_LOGOUT } from 'src/store/actions/auth'
 
@@ -20,7 +20,7 @@ const getters = {
 const actions = {
   [USER_REQUEST]: ({commit, dispatch}) => {
     commit(USER_REQUEST);
-    auth.user().then(resp => {
+    return request.profile().then(resp => {
         commit(USER_SUCCESS, resp)
       }).catch(() => {
         commit(USER_ERROR);
@@ -36,11 +36,11 @@ const mutations = {
   },
   [USER_SUCCESS]: (state, resp) => {
     state.status = 'success';
-    Vue.set(state, 'email', resp)
-    Vue.set(state, 'password', resp)
-    Vue.set(state, 'first_name', resp)
-    Vue.set(state, 'last_name', resp)
-    Vue.set(state, 'phone', resp)
+    Vue.set(state, 'email', resp.fields)
+    Vue.set(state, 'password', resp.fields)
+    Vue.set(state, 'first_name', resp.fields)
+    Vue.set(state, 'last_name', resp.fields)
+    Vue.set(state, 'phone', resp.fields)
   },
   [USER_ERROR]: (state) => {
     state.status = 'error'
