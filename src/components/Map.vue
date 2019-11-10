@@ -22,7 +22,7 @@
 
     <yandex-map 
       :controls="['fullscreenControl', 'typeSelector', 'zoomControl']"
-      :coords="[59.94655135493689,29.97523181992358]"
+      :coords="[59.76020282061614,30.35863143876523]"
       :zoom="10"
       style="width: 100%; height: 70vh;"
     >
@@ -91,6 +91,7 @@
         >Игрок №{{boat.id}}</h6>
       <div class="point ml-1" :style="{'background-color': boat.color}"></div>
       <b-progress  
+        :max='5'
         :value="boat.racetrackCount" 
         show-value
         class="mt-1"></b-progress>
@@ -120,10 +121,9 @@ export default {
   },
   created() {
     setInterval(() => this.setBoatsRequest(), 6000); 
-
-    setTimeout(() => {
-      this.pushToBoatAct();
-    }, 500);
+    // setTimeout(() => {
+    //   this.pushToBoatAct();
+    // }, 500);
 
     for (let index = 0; index < this.boats.length; index++) {
       this.boats[index].color = this.getRandomColor();
@@ -134,7 +134,6 @@ export default {
   },
 
   beforeUpdate() {
-    
 
     //Обновляем кол-во кругов
     for (let index = 0; index < this.boats.length; index++) {
@@ -155,6 +154,7 @@ export default {
       ...mapGetters([
           'boats',
           'reguts',
+          'allCords'
       ]),
 
       neededBoats() {

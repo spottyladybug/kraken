@@ -61,7 +61,7 @@ const state = {
                 [60.04627904421609,29.735288643809408], [60.04162334293775,29.637076745481284], [60.019337199177,29.60717715617732],
                 [59.970151497419906,29.666523264032556], [59.95678892539621,29.754653091235213]
             ],
-          racetrackCount: 3,  
+          racetrackCount: 0,  
           updated: true,
         },
         {
@@ -69,14 +69,14 @@ const state = {
           cords: [[59.94376383226636,30.30572504023785], [59.95857348144599,30.251480045120672], [59.970278736782134,30.184188785355055], 
                 [59.96550981578456,30.001315215995007]
             ],
-          racetrackCount: 2, 
+          racetrackCount: 1, 
           updated: true,
         },
         {
           id: 3,
           cords: [[59.94376383226636,30.30572504023785], 
           ],
-          racetrackCount: 1, 
+          racetrackCount: 0, 
           updated: true,
         },
         {
@@ -84,7 +84,7 @@ const state = {
           cords: [[59.94376383226636,30.30572504023785], [59.95857348144599,30.251480045120672], [59.970278736782134,30.184188785355055],
                 [60.01598089395001,29.908981170749694]
             ],
-          racetrackCount: 4, 
+          racetrackCount: 0, 
           updated: true,
         },
         {
@@ -93,7 +93,7 @@ const state = {
                   [],
                 ],
 
-            racetrackCount: 3, 
+            racetrackCount: 1, 
             updated: true,
         },
         {
@@ -101,7 +101,31 @@ const state = {
             cords: [
                 [],
               ],
-            racetrackCount: 3, 
+            racetrackCount: 0, 
+            updated: true,
+          },
+          {
+            id: 7,
+            cords: [
+                [],
+              ],
+            racetrackCount: 0, 
+            updated: true,
+          },
+          {
+            id: 8,
+            cords: [
+                [],
+              ],
+            racetrackCount: 1, 
+            updated: true,
+          },
+          {
+            id: 9,
+            cords: [
+                [],
+              ],
+            racetrackCount: 0, 
             updated: true,
           },
       ],

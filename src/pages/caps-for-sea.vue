@@ -292,7 +292,8 @@
 											<div class="description-ttl">Описание</div>
 											<div class="description-info">
 												<p>Quis nostrud dolore amet cupidatat exercitation excepteur dolor nulla nisi. Adipisicing ipsum enim reprehenderit excepteur labore ut id laborum incididunt Lorem fugiat quis culpa non.</p> 
-												<p> Mollit reprehenderit qui culpa eiusmod. Aute deserunt consequat non enim ad nisi minim ad adipisicing in aliqua ipsum anim laboris. Deserunt dolore minim cupidatat id. Deserunt occaecat veniam fugiat qui eiusmod elit irure veniam voluptate dolore ad proident. Commodo laborum in qui cillum ipsum elit consectetur.</p></div>
+												<p> Mollit reprehenderit qui culpa eiusmod. Aute deserunt consequat non enim ad nisi minim ad adipisicing in aliqua ipsum anim laboris. Deserunt dolore minim cupidatat id. Deserunt occaecat veniam fugiat qui eiusmod elit irure veniam voluptate dolore ad proident. Commodo laborum in qui cillum ipsum elit consectetur.</p>
+											</div>
 										</div>
 									</b-col>
 								</b-row>
@@ -433,14 +434,14 @@
 	}
 
 	.ship-block {
-		width: 350px;
-		height: 369px;
+		width: 100%;
+		/* height: 369px; */
 
 		background: #FFFFFF;
 		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 		border-radius: 15px;
 
-		margin: 38px 0 0 30px;
+		margin-top: 2em;
 	}
 
 	.ship-photo {
